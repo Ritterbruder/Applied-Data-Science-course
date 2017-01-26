@@ -1,0 +1,13 @@
+def answer_two():
+       
+    merg1=pd.merge(ScimEn,energy, how="inner")
+    
+    merg2=pd.merge(merg1,GDP.iloc[:,[0,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1]],how="inner", left_on="Country", right_on="Country Name")
+    
+    ints1=pd.merge(ScimEn,energy, how="outer")
+    
+    ints2=pd.merge(ints1,GDP.iloc[:,[0,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1]],how="outer", left_on="Country", right_on="Country Name")
+    
+    return len(ints2)-len(merg2.set_index("Country").drop("Country Name", axis=1))
+    
+answer_two()
