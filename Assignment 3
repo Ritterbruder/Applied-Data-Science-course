@@ -41,10 +41,10 @@ ScimEn=pd.read_excel("scimagojr-3.xlsx")
 def answer_one():
     
     #return GDP.iloc[:,[0,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1]]
-    merg1=pd.merge(ScimEn.head(n=15),energy, how="inner")
+    merg1=pd.merge(ScimEn,energy, how="inner")
     
     merg2=pd.merge(merg1,GDP.iloc[:,[0,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1]],how="inner", left_on="Country", right_on="Country Name")
     
-    return merg2.set_index("Country").drop("Country Name", axis=1)
+    return merg2.set_index("Country").drop("Country Name", axis=1).head(15)
           
 answer_one()
