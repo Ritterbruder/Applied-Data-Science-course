@@ -1,0 +1,10 @@
+def answer_three():
+    Top15 = answer_one()
+    
+    Top15=Top15.iloc[:,10:]
+    
+    avgGDP=Top15.mean(axis=1,skipna=True).sort_values(ascending =False)
+    
+    return avgGDP
+
+answer_three()
