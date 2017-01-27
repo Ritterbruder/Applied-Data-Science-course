@@ -1,0 +1,9 @@
+def answer_four():
+    
+    Top15 = answer_one().iloc[:,[-1,-10]]
+         
+    sxth_cont=answer_three().reset_index().iloc[5,0]
+    
+    return Top15.loc[sxth_cont].iloc[0]-Top15.loc[sxth_cont].iloc[1]
+
+answer_four()
