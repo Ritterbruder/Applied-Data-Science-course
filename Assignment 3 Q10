@@ -1,0 +1,18 @@
+def answer_ten():
+    
+    Top15 = answer_one()
+    
+    Top15["HighRenew"]=0
+    
+    x=0
+    for i in Top15["% Renewable"]:
+        if i >= Top15["% Renewable"].median():
+            Top15["HighRenew"].iloc[x]=1
+        else:
+            Top15["HighRenew"].iloc[x]=0
+        x=x+1
+           
+      
+    return Top15["HighRenew"]
+
+answer_ten()
